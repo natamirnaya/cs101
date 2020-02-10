@@ -9,3 +9,6 @@
 3. Item 3
 
 > reference
+
+Place for image
+![Description] (photos/box.jpg)

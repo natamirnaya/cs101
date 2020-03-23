@@ -1,0 +1,157 @@
+// #1
+
+let name;
+let age;
+
+name = promt ('Enter your name: ');
+age = promt ('Enter your age: ');
+
+cosole.log (name + age);
+
+// #2
+
+let name;
+let age;
+
+name = promt ('Enter your name: ');
+age = promt ('Enter your age: ');
+
+if age >= 18 && name == 'Ярополк' {
+  cosole.log ('Привет Ярополк');
+} 
+
+// #3
+
+let whiteList = ['Зевс', 'Афина', 'Прометей', 'Дионис'];
+let name = promt ('Enter your name: ');
+
+if whiteList.includes(name) {
+  console.log("secret1");
+}
+else {
+  console.log("secret2");
+}
+
+// #4
+
+let blackList = [];
+let name = promt ('Enter your name: ');
+let age = promt ('Enter your age: ');
+
+if age < 18  {
+  blackList.push(name);
+}
+
+// #5
+
+let agelist = [];
+let namelist = [];
+let name;
+let age;
+
+for (let i = 0; i < 3; i=i+1) {
+  agelist[i] = promt ('Enter your age: ');
+  namelist[i] = promt ('Enter your name: ');
+  if agelist[i]%2 = 1 {
+    console.log(namelist[i]);
+  }
+}
+
+
+// #6
+// вариант 1
+
+let str4print = '';
+for (let i = 1; i <= 5; i=i+1) {
+  str4print = str4print + '#';
+  console.log(str4print);
+}
+for (let j = 1; j <= 5; j=j+1) {
+  str4print = str4print - '#'; // не уверена в синтаксисе, не знаю как в JavaScript работать с текстовыми переменными (определить длину строки, возвратить определенный символ или заданное кол-во справа/слева)
+  console.log(str4print);
+}
+
+// вариант 2
+
+let str4print;
+let symbol4print = '#';
+
+for (let i = 1; i <= 5; i=i+1) {
+  str4print = symbol4print.repeat(i);
+  console.log(str4print);
+}
+for (let j = 4; j >= 0; j=j-1) {
+  symbol4print.repeat(j);
+  console.log(str4print);
+}
+
+// #7
+
+let symbolNum = [12, 43, 11, 27, 18];
+let symbol4print = '#';
+
+for (let i = 0; i < symbolNum.length; i=i+1) {
+  let str4print = symbol4print.repeat(symbolNum[i]);
+  console.log(str4print);
+}
+
+// #8
+
+function AverageAge (UserNum) { // UserNum - количество пользователей средний возраст которых надо посчитать и вывести
+   let agelist = [];
+   for (let i = 0; i < UserNum; i=i+1) {
+     agelist[i] = promt ('Enter your age: ');
+   }
+   let SumAge = 0;
+   let AverAge;
+   for (let j = 0; j < UserNum; j=j+1) {
+     SumAge = SumAge + agelist[j];
+   }
+   AverAge = SumAge / UserNum;
+   console.log(AverAge);
+}
+
+AverageAge (3);
+
+// #9
+
+function SumSquareNumbers () { 
+  let sourceNum = [34, 1, 41, 22, 98];
+  let squareNum;
+  let SumSquareNum = 0;
+  for (let i = 0; i < sourceNum.length; i=i+1) {
+    if sourceNum[i]%2 = 1 {
+      squareNum = sourceNum[i]**2;
+      SumSquareNum = SumSquareNum + squareNum;
+    }
+  }
+  return SumSquareNum;
+}
+
+let summa = SumSquareNumbers;
+
+// #10
+let sourceNum = [45, 44, 77, 22, 11];
+let n = promt ('Enter number: ');
+
+function EvenNumbers (sourceArr) { 
+  let finalArr = [];
+  let j = 0;
+  for (let i = 0; i < sourceArr.length; i=i+1) {
+    if sourceArr[i]%2 = 0 {
+      finalArr[j] = sourceArr[i];
+      j = j+1;
+    }
+  }
+  return finalArr;
+}
+
+
+function FinalNumbers (Num) {
+  let Arr = finalArr;
+  for (let i = 0; i < Arr.length; i=i+1) {
+    console.log (Arr[i]**Num);
+  }
+}
+
+FinalNumbers (n);

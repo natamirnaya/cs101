@@ -1,4 +1,4 @@
-![Abstraction] (photos\Sample_pic.png)
+!(photos\Sample_pic.png)
 
-![Mandala] (photos\Mandala_pic.png)
+!(photos\Mandala_pic.png)
 

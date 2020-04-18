@@ -1,3 +1,4 @@
-!(photos/Sample_pic.png)
-!(photos/Mandala_pic.png)
+![hj](photos/Sample_pic.png)
+
+![lk](photos/Mandala_pic.png)
 

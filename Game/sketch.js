@@ -1,10 +1,9 @@
-let counter = 0;
 let obs_on_screen = false;
-robot_speed = 0;
 let obs;
 let check;
-let start_game = true;
-let game_over = false;
+let robot;
+let counter;
+let game_state = 'start';
 let robot_y = 215;
 
 function define_sprite(sprite_obj, sprite_x, sprite_y) {
@@ -26,12 +25,11 @@ function define_sprite(sprite_obj, sprite_x, sprite_y) {
 
 
 function end_game(){
-  game_over = true;
+  game_state = 'game_over';
+  robot.remove();
+  obs.remove();
+  check.remove();
   ost_over.play();
-  background(end_title);
-  textSize(48);
-  textFont('Georgia');
-  text('Points earned: ' + str(counter), 60, 285);
 }
 
 function add_point(){
@@ -54,29 +52,31 @@ function setup() {
 
 function draw() {
   
-  if (start_game==true){
+  if (game_state=='start'){
     background(begin_title);
-    fill(0);
-    textSize(48);
-    textFont('Georgia');
-    text('Click to start', 100, 285);
-    fill(255,0,0);
+    fill(210,50,20);
+    textSize(30);
+    textFont('Comic Sans MS');
+    text('Press S to start', 20, 50);
+    fill(60,130,160);
+    textFont('Comic Sans MS');
     textSize(20);
-    textFont('Georgia');
-    text('Use arrow UP to jump', 140, 50);
-    if (mouseIsPressed){
-      start_game = false;
+    text('USE ARROW UP TO JUMP', 220, 292);
+    if (keyIsPressed && key == 's'){
+      game_state = 'game';
       background(game_back);
       robot = define_sprite(robot_spec, 50, robot_y);
+      robot_speed = 0;
+      counter = 0;
       obs_on_screen = false;
     }}
     
-  if (game_over==false && start_game==false){
+  if (game_state=='game'){
   background(game_back);
-  fill(255,0,0);
-  textSize(20);
-  textFont('Georgia');
-  text('Points: ' + str(counter), 350, 20);
+  fill(60,130,160);
+  textSize(22);
+  textFont('Comic Sans MS');
+  text('POINTS: ' + str(counter), 300, 25);
   robot.setVelocity(0, robot_speed);
   drawSprites();
   
@@ -86,7 +86,7 @@ function draw() {
   }
   
   if (robot.position.y<robot_y){
-    robot_speed = robot_speed +0.4;
+    robot_speed = robot_speed + 0.35;
   }
   
   if (robot.position.y>=robot_y && robot.previousPosition.y<robot_y){
@@ -111,6 +111,20 @@ function draw() {
     obs_on_screen = true;
   }
     
+  }
+  
+  if (game_state=='game_over'){
+    background(end_title);
+    fill(210,50,20);
+    textFont('Comic Sans MS');
+    textSize(30);
+    text('Press R to restart game', 85, 290);
+    fill(60,130,160);
+    textFont('Comic Sans MS');
+    textSize(32);
+    text('POINTS EARNED: ' + str(counter), 95, 50);
+    if (keyIsPressed && key=='r'){
+      game_state = 'start'}
   }
 
 } 
